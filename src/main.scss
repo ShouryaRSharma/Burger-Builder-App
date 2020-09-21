@@ -1,1 +1,12 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+$theme-colors: (
+  "primary": #382ab8,
+  "danger": rgb(216, 57, 168)
+);
+
+@each $color, $value in $theme-colors {
+    .swatch-#{$color} {
+      color: color-yiq($value);
+    }
+}
+
+@import "~bootstrap/scss/bootstrap.scss";
