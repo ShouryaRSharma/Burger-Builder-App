@@ -4,7 +4,7 @@ import './Modal.scss';
 
 const modal = (props) => {
     return(
-        <div className="Modal">
+        <div className={props.show ? "Modal modal-show" : 'Modal modal-hide'} >
             {props.children}
         </div>
     )
