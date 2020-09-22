@@ -1,0 +1,68 @@
+.BuildControl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.boyger {
+    border: 1px solid black;
+}
+
+.btn {
+    border-radius: 0.25rem;
+    border: 1px solid black;
+}
+
+.btn-light:hover, .btn-light:active { 
+    background-color: #f8f9fa;
+    transition: 0.2s;
+    transform: scale(1.1);
+    border: 1px solid black;
+}
+
+.btn-light {
+    &:disabled {
+        border: 1px solid black;
+        background-color: #ccc;
+    }
+}
+
+.btn-dark:hover, .btn-dark:active {
+    transition: 0.2s;
+    transform: scale(1.1);
+    border: 1px solid black;
+}
+
+// .BuildControl button {
+//     display: block;
+//     font: inherit;
+//     padding: 5px;
+//     margin: 0 5px;
+//     width: 80px;
+//     border: 1px solid #AA6817;
+//     border-radius: 2px;
+//     cursor: pointer;
+//     outline: none;
+// }
+
+// .BuildControl button:disabled {
+//     background-color: #AC9980;
+//     border: 1px solid #7E7365;
+//     color: #ccc;
+//     cursor: default;
+// }
+
+// .BuildControl button:hover:disabled {
+//     background-color: #AC9980;
+//     color: #ccc;
+//     cursor: not-allowed;
+// }
+
+.Label {
+    padding: 10px;
+    font-weight: bold;
+    width: 80px;
+}
+
+
