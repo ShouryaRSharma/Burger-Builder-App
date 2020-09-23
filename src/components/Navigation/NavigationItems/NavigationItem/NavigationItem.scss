@@ -1,0 +1,21 @@
+.nav-item {
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    a {
+        color: #212529;
+        text-decoration: none;
+        height: 100%;
+        padding: 16px 10px;
+        border-bottom: 2px solid transparent;
+        box-sizing: border-box;
+        display: block;
+
+        &:hover, &:active, .active {
+            border-bottom: 2px solid #fe2e3f;
+        }
+    }
+}
