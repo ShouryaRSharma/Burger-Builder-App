@@ -15,6 +15,7 @@ const orderSummary = (props) => {
             <ul className="centre">
                 {ingredientSummary}
             </ul>
+            <p>Total Price: £{props.price.toFixed(2)}</p>
             <p>Continue to checkout?</p>
             <div className="row">
                 <div className="col-md">
