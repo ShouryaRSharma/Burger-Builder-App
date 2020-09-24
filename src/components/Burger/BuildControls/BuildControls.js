@@ -1,6 +1,7 @@
 import React from 'react';
 import './BuildControls.scss';
 import BuildControl from './BuildControl/BuildControl';
+import Wave from '../../../assets/images/wave(7).svg';
 
 const controls = [
     { label: 'Salad', type: 'salad'},
@@ -11,7 +12,8 @@ const controls = [
 ]
 
 const buildControls = (props) => (
-    <div className="container BuildControls">
+    <div className="BuildControls">
+        <img src={Wave} alt="Wavetag" border="0"></img>
         <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
         {controls.map(ctrl => {
             return(
