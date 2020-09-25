@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
-import burgerLogo from '../../assets/images/burger.svg';
-import classes from './Logo.module.scss';
+// import burgerLogo from '../../assets/images/burger.svg';
+// import classes from './Logo.module.scss';
 
 const logo = (props) => {
     return(

@@ -2,6 +2,7 @@ import React from 'react';
 import './Burger.scss';
 
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
+import BurgerImage from '../../assets/images/logo2.png';
 
 const burger = (props) => {
     let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
@@ -13,19 +14,19 @@ const burger = (props) => {
     }, []);
 
     if (transformedIngredients.length === 0) {
-        transformedIngredients = <p>Please start adding ingredients!</p>
+        transformedIngredients = <div className="Logo2"><img src={BurgerImage} alt=""/></div>
     }
 
     return (
-            <div className="row text-center">
-                <div className="col-md">
-                    <div className="container burger mx-0">
-                        <BurgerIngredient type="bread-top"/>
-                        {transformedIngredients}
-                        <BurgerIngredient type="bread-bottom"/>
-                    </div>
-                </div>
+        <div className="BurgerContainer">
+            <div className="Burger">
+                <BurgerIngredient type="bread-top"/>
+                
+                {transformedIngredients}
+                
+                <BurgerIngredient type="bread-bottom"/>
             </div>
+        </div>     
     )
 }
 
