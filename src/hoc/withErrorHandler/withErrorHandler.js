@@ -12,21 +12,18 @@ const errorHandler = (WrappedComponent, axios) => {
             super();
             this.state = ({
                 error: null
-            })
-        }
-
-        componentDidMount() {
+            });
             axios.interceptors.request.use(req => {
                 this.setState({
                     error: null
                 });
                 return req;
-            })
+            });
             axios.interceptors.response.use(res => res, error => {
                 this.setState({
                     error: error
                 });
-            })
+            });
         }
 
         errorConfirmedHandler = () => {
