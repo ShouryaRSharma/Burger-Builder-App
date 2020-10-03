@@ -126,7 +126,8 @@ class BurgerBuilder extends Component {
                 this.setState({
                     loading: false,
                     orderNow: false
-                })
+                });
+                console.log(response)
             }
         ).catch(err => 
             this.setState({

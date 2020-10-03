@@ -1,0 +1,50 @@
+.burger-holder {
+    width: 100%;
+    height: 300px;
+    margin: auto;
+    background-image: none;
+}
+
+.checkoutSummary {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+@media (min-width: 600px) {
+    .checkoutSummary {
+        width: 500px;
+    }
+}
+
+.btnGroup {
+    width: 45%;
+    margin: auto;
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: space-between;
+
+}
+
+.checkoutButton {
+    border: none;
+    transition: .2s;
+    font-size: 1.5rem;
+    &:hover {
+        transform: scale(1.05);
+    }
+
+}
+
+.cancel {
+    &:hover {
+        color: red;
+    }
+}
+
+
+.success {
+    &:hover {
+        color: green;
+    }
+}

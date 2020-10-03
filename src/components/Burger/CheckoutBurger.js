@@ -4,7 +4,7 @@ import './Burger.scss';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import BurgerImage from '../../assets/images/logo2.png';
 
-const burger = (props) => {
+const burgerCheckout = (props) => {
     let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
         return [...Array(props.ingredients[igKey])].map((_, i) => {
             return <BurgerIngredient key={igKey + i} type={igKey}/>
@@ -18,14 +18,12 @@ const burger = (props) => {
     }
 
     return (
-        <div className="BurgerContainer">
             <div className="Burger">
                 <BurgerIngredient type="bread-top"/>
                 {transformedIngredients}
                 <BurgerIngredient type="bread-bottom"/>
             </div>
-        </div>     
     )
 }
 
-export default burger;
+export default burgerCheckout;

@@ -14,13 +14,11 @@ const errorHandler = (WrappedComponent, axios) => {
                 error: null
             });
             axios.interceptors.request.use(req => {
-                this.setState({
-                    error: null
-                });
+                
                 return req;
             });
             axios.interceptors.response.use(res => res, error => {
-                this.setState({
+                this.state({
                     error: error
                 });
             });
@@ -33,7 +31,7 @@ const errorHandler = (WrappedComponent, axios) => {
         }
 
         render() {
-            const danger = <div className="Error"><FontAwesomeIcon size="70px" className="heartbeat" icon={faExclamationTriangle} />
+            const danger = <div className="Error"><FontAwesomeIcon  className="heartbeat" icon={faExclamationTriangle} />
             <p className="danger-text mt-1">Something went wrong!</p></div>
     
             return(
