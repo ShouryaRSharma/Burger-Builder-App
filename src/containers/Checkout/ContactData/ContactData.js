@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {withRouter} from 'react-router-dom';
 
+import axios from '../../../axios-orders';
 import './ContactData.scss';
-
+import Spinner from '../../../components/UI/Spinner/Spinner';
 class ContactData extends Component {
     state = {
         name: null,
@@ -11,10 +13,48 @@ class ContactData extends Component {
             postCode: null
         }
     }
+    
+    orderHandler = (event) => {
+        event.preventDefault();
+        this.setState({
+            loading: true
+        });
+        const number = Number(this.props.price);
+        const fixed = number.toFixed(2);
+        const order = {
+            ingredients: this.props.ingredients,
+            price: fixed,
+            customer: {
+                name: 'Shourya Sharma',
+                address:{
+                    street: '10 Denton Way',
+                    postcode: 'SL37DJ',
+                    country: 'UK'
+                },
+                deliveryMethod: 'fastest'
+            }
+        }
+        console.log(order);
+        axios.post('/orders.json', order).then(
+            response => {
+                this.setState({
+                    loading: false,
+                    orderNow: false
+                });
+                this.props.history.push('/');
+                console.log(response)
+            }
+        ).catch(err => 
+            this.setState({
+                loading: false,
+                orderNow: false
+            })
+        );
+    }
 
     render() {
-        return (
-            <div className="ContactData">
+        let form = (
+                <Fragment>
                 <h4>Enter your Contact Data</h4>
                 <form>
                     <div className="mb-3">
@@ -27,11 +67,20 @@ class ContactData extends Component {
                     <div className="mb-3">
                         <input type="text" className="form-control" id="inputAddress" placeholder="Address"/>
                     </div>
-                    <button type="submit" className="btn btn-dark">Submit</button>
+                    <button type="submit" className="btn btn-dark" onClick={this.orderHandler}>Submit</button>
                 </form>
+                </Fragment>
+            
+        );
+        if (this.state.loading) {
+            form = <Spinner />
+        }
+        return (
+            <div className="ContactData">
+                {form}
             </div>
         );
     }
 }
 
-export default ContactData;
+export default withRouter(ContactData);
