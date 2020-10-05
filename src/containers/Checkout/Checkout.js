@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
+import {Route} from 'react-router-dom';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary'
+import ContactData from './ContactData/ContactData';
 
 class Checkout extends Component {
     state = {
@@ -34,7 +36,12 @@ class Checkout extends Component {
     render() {
         return(
             <Fragment>
-                <CheckoutSummary onCancel={this.checkoutCancelledHandler} onContinue={this.checkoutContinuedHandler} test={this.state.test} ingredients={this.state.ingredients}/>
+                <CheckoutSummary 
+                onCancel={this.checkoutCancelledHandler} 
+                onContinue={this.checkoutContinuedHandler} 
+                test={this.state.test} 
+                ingredients={this.state.ingredients}/>
+                <Route path={this.props.match.url + '/contact-data'} component={ContactData}/>
             </Fragment>
         )
     }

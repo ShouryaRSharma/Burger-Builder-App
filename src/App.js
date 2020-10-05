@@ -7,7 +7,7 @@ import Layout from './components/UI/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Checkout from './containers/Checkout/Checkout';
 
-require('popper.js');
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 class App extends Component {
   render() {
