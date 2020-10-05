@@ -101,40 +101,41 @@ class BurgerBuilder extends Component {
     purchaseCancelHandler = () => {
         this.setState({
             orderNow: false
-        })
+        });
     }
 
     purchaseContinueHandler = () => {
-        this.setState({
-            loading: true
-        })
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Shourya Sharma',
-                address:{
-                    street: '10 Denton Way',
-                    postcode: 'SL37DJ',
-                    country: 'UK'
-                },
-                deliveryMethod: 'fastest'
-            }
-        }
-        axios.post('/orders.json', order).then(
-            response => {
-                this.setState({
-                    loading: false,
-                    orderNow: false
-                });
-                console.log(response)
-            }
-        ).catch(err => 
-            this.setState({
-                loading: false,
-                orderNow: false
-            })
-        );
+        // this.setState({
+        //     loading: true
+        // })
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Shourya Sharma',
+        //         address:{
+        //             street: '10 Denton Way',
+        //             postcode: 'SL37DJ',
+        //             country: 'UK'
+        //         },
+        //         deliveryMethod: 'fastest'
+        //     }
+        // }
+        // axios.post('/orders.json', order).then(
+        //     response => {
+        //         this.setState({
+        //             loading: false,
+        //             orderNow: false
+        //         });
+        //         console.log(response)
+        //     }
+        // ).catch(err => 
+        //     this.setState({
+        //         loading: false,
+        //         orderNow: false
+        //     })
+        // );
+        this.props.history.push('/checkout');
     }
 
     render() {
