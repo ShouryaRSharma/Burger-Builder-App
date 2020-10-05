@@ -32,12 +32,26 @@
 
 }
 
+.checkoutContainer {
+  background-size: cover;
+
+  height: 315px;
+
+}
+
+@media (min-width: 300) and (min-height: 400px) {
+  .Burger {
+      width: 250px;
+      height: 300px;
+  }
+  
+}
+
 @media (min-width: 500px) and (min-height: 400px) {
     .Burger {
         width: 250px;
         height: 300px;
     }
-
     
 }
 
@@ -50,6 +64,9 @@
     }
     .BurgerContainer {
         height: 45vh;
+    }
+    .checkoutContainer {
+      height: 45vh;
     }
 }
 
@@ -67,6 +84,9 @@
         height: 48.5vh;
         background-position-y: -200px;
         width: 1920px;
+    }
+    .checkoutContainer {
+      height: 48.5vh;
     }
 }
 

@@ -17,9 +17,22 @@
     }
 }
 
+@media (min-width: 500px) and (min-height: 401px) {
+
+    .burger-holder {
+    height: 45vh;
+    }
+}
+
+
+@media (min-width: 1600px) {
+
+    .burger-holder {
+    height: 48.5vh;
+    }
+}
+
 .btnGroup {
-    width: 45%;
-    margin: auto;
     display: inline-flex;
     vertical-align: middle;
     justify-content: space-between;
@@ -29,7 +42,6 @@
 .checkoutButton {
     border: none;
     transition: .2s;
-    font-size: 1.5rem;
     &:hover {
         transform: scale(1.05);
     }
@@ -47,4 +59,8 @@
     &:hover {
         color: green;
     }
+}
+
+.container {
+    margin-top: 80px;
 }

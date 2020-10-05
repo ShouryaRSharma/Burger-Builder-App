@@ -18,6 +18,10 @@ $font1: 'Montserrat', sans-serif;
   --line-height: 1;
 }
 
+main {
+  margin-top: 72px;
+}
+
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size);
@@ -192,4 +196,5 @@ h1 {
 
 .App {
   font-family: $font1;
+  width: 100%;
 }
