@@ -1,6 +1,8 @@
 import React from 'react'
 import classes from './Order.module.scss';
 
+import Burger from '../Burger/OrderBurger';
+
 const order = (props) => {
     const ingredients = [];
 
@@ -13,14 +15,23 @@ const order = (props) => {
 
     const ingredientOutput= ingredients.map(ig => {
         return (
-            <span className={classes.listText} key={ig.name}>{ig.name} ({ig.amount})</span>
+            <li className={classes.listText} key={ig.name}>{ig.name}: {ig.amount} &nbsp;</li>
         );
     });
 
     return(
-        <div className={classes.order}>
-            <p>Ingredients: {ingredientOutput}</p>
-            <p>Price: <strong>£ {props.price}</strong></p>
+        <div className={classes.order + " row"}>
+            <div className={classes.textFocusIn + " col-md"}>
+                <p>Ingredients: </p> 
+                    <ul className="">    
+                    {ingredientOutput}
+                    </ul>
+                
+                <p>Price: <strong>£ {props.price}</strong></p>
+            </div>
+            <div className={classes.textFocusIn + " col-md d-none d-xl-block d-lg-block d-md-block"}>
+                <Burger ingredients={props.ingredients} />
+            </div>
         </div>
     );
 }

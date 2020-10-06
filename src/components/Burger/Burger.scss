@@ -13,6 +13,10 @@
     animation: slide-in-bck-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
 }
 
+.order-image {
+  width: 150px;
+}
+
 .Logo2 {
     padding: 15px;
     height: 15vh;
@@ -37,6 +41,20 @@
 
   height: 315px;
 
+}
+
+.orderBurger {
+  width: 300px;
+  height: 175px;
+ /* overflow: scroll; */
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+-webkit-animation: slide-in-bck-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+  animation: slide-in-bck-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
 }
 
 @media (min-width: 300) and (min-height: 400px) {
