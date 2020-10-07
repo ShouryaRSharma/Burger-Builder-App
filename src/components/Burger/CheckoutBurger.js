@@ -20,13 +20,11 @@ const burgerCheckout = (props) => {
     }
 
     return (
-        <div className="checkoutContainer">
             <div className="Burger">
                 <BurgerIngredient type="bread-top"/>
                 {transformedIngredients}
                 <BurgerIngredient type="bread-bottom"/>
             </div>
-        </div>
     )
 }
 
