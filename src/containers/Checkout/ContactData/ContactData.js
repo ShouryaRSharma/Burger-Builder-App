@@ -7,12 +7,58 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Form/Input';
 class ContactData extends Component {
     state = {
-        name: null,
-        email: null,
-        address: {
-            street: null,
-            postCode: null
-        }
+        orderForm: {
+            name: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Name'
+                },
+                value: ''
+            },
+            street: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Address'
+                },
+                value: ''
+            },
+            postcode: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Postcode'
+                },
+                value: ''
+            },
+            country: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Country'
+                },
+                value: ''
+            },
+            email: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'email',
+                    placeholder: 'Your E-Mail'
+                },
+                value: ''
+            },
+            deliveryMethod: {
+                elementType: 'select',
+                elementConfig: {
+                    options: [
+                        {value: 'fastest', displayValue: 'Fastest (1 hour delivery)'},
+                        {value: 'cheapest', displayValue: 'Cheapest (2-3 hours delivery time)'}
+                    ]
+                },
+                value: ''
+            } 
+        },
     }
     
     orderHandler = (event) => {
@@ -25,15 +71,7 @@ class ContactData extends Component {
         const order = {
             ingredients: this.props.ingredients,
             price: fixed,
-            customer: {
-                name: 'Shourya Sharma',
-                address:{
-                    street: '10 Denton Way',
-                    postcode: 'SL37DJ',
-                    country: 'UK'
-                },
-                deliveryMethod: 'fastest'
-            }
+            
         }
         console.log(order);
         axios.post('/orders.json', order).then(
@@ -53,21 +91,42 @@ class ContactData extends Component {
         );
     }
 
+    inputChangedHandler = (event, inputIdentifier) => {
+        const updatedOrderForm = {
+            ...this.state.orderForm
+        };
+
+        const updatedFormElement = {
+            ...updatedOrderForm[inputIdentifier]
+        };
+
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        this.setState({
+            orderForm: updatedOrderForm
+        })
+    }
+
     render() {
+        const formElementsArray = [];
+        for (let key in this.state.orderForm) {
+            formElementsArray.push({
+                id: key,
+                config: this.state.orderForm[key]
+            });
+        }
         let form = (
                 <Fragment>
                 <h4>Enter your Contact Data</h4>
                 <form>
-                    <div className="mb-3">
-                        <Input inputtype="input" type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address"/>
-                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div className="mb-3">
-                        <Input inputtype="input" type="text" id="inputPassword" placeholder="Name"/>
-                    </div>
-                    <div className="mb-3">
-                        <Input inputtype="input" type="text" id="inputAddress" placeholder="Address"/>
-                    </div>
+                    {formElementsArray.map(formElement => (
+                        <Input
+                        key={formElement.id} 
+                        elementType={formElement.config.elementType} 
+                        elementConfig={formElement.config.elementConfig}
+                        value={formElement.config.value}
+                        changed={(event) => this.inputChangedHandler(event, formElement.id)}/>
+                    ))}
                     <button type="submit" className="btn btn-dark" onClick={this.orderHandler}>Submit</button>
                 </form>
                 </Fragment>
@@ -77,7 +136,7 @@ class ContactData extends Component {
             form = <Spinner />
         }
         return (
-            <div className="ContactData">
+            <div className="ContactData mt-0">
                 {form}
             </div>
         );

@@ -6,7 +6,6 @@ import Burger from '../Burger/CheckoutBurger';
 const checkoutSummary = (props) => {
     return(
         <div className="container text-center">
-            <h2 className="hover-in">We hope it tastes great!</h2>
             <div className="burger-holder">
                 <Burger ingredients={props.ingredients}/>
                 <div className="btnGroup hover-in">
