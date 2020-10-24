@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 import axios from '../../../axios-orders';
 import './ContactData.scss';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import Input from '../../../components/UI/Form/Input';
 class ContactData extends Component {
     state = {
         name: null,
@@ -58,14 +59,14 @@ class ContactData extends Component {
                 <h4>Enter your Contact Data</h4>
                 <form>
                     <div className="mb-3">
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address"/>
+                        <Input inputtype="input" type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address"/>
                         <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div className="mb-3">
-                        <input type="text" className="form-control" id="inputPassword" placeholder="Name"/>
+                        <Input inputtype="input" type="text" id="inputPassword" placeholder="Name"/>
                     </div>
                     <div className="mb-3">
-                        <input type="text" className="form-control" id="inputAddress" placeholder="Address"/>
+                        <Input inputtype="input" type="text" id="inputAddress" placeholder="Address"/>
                     </div>
                     <button type="submit" className="btn btn-dark" onClick={this.orderHandler}>Submit</button>
                 </form>
