@@ -216,7 +216,6 @@ body::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb {
   background-color: rgba(73, 72, 72, 0.945);    /* color of the scroll thumb */
-  border-radius: 20px;      /* roundness of the scroll thumb */
-  width: 8px;  /* creates padding around scroll thumb */
+  border-radius: 12px;      /* roundness of the scroll thumb */
   border: 3px solid rgb(22, 22, 22);
 }

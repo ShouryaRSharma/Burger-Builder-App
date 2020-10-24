@@ -68,10 +68,15 @@ class ContactData extends Component {
         });
         const number = Number(this.props.price);
         const fixed = number.toFixed(2);
+        const formData = {};
+        for (let formElementIdentifier in this.state.orderForm) {
+            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+        }
+
         const order = {
             ingredients: this.props.ingredients,
             price: fixed,
-            
+            orderData: formData
         }
         console.log(order);
         axios.post('/orders.json', order).then(
@@ -118,7 +123,7 @@ class ContactData extends Component {
         let form = (
                 <Fragment>
                 <h4>Enter your Contact Data</h4>
-                <form>
+                <form onSubmit={this.orderHandler}>
                     {formElementsArray.map(formElement => (
                         <Input
                         key={formElement.id} 
